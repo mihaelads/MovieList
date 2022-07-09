@@ -38,6 +38,7 @@ class ItemDetailFragment : Fragment() {
         if (event.action == DragEvent.ACTION_DROP) {
             val clipDataItem: ClipData.Item = event.clipData.getItemAt(0)
             val dragData = clipDataItem.text
+
             item = PlaceholderContent.ITEM_MAP[dragData]
             updateContent()
         }
