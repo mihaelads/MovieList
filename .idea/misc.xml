@@ -5,8 +5,10 @@
       <map>
         <entry key="app/src/main/res/layout/activity_item_detail.xml" value="0.203125" />
         <entry key="app/src/main/res/layout/fragment_item_detail.xml" value="0.3885416666666667" />
+        <entry key="app/src/main/res/layout/fragment_item_list.xml" value="0.4244791666666667" />
         <entry key="app/src/main/res/layout/item_list_content.xml" value="0.45" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2065" />
+        <entry key="app/src/main/res/mipmap/ic_launcher_round.xml" value="0.1025" />
       </map>
     </option>
   </component>

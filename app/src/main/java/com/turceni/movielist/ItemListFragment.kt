@@ -14,6 +14,7 @@ import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.turceni.movielist.databinding.FragmentItemListBinding
 import com.turceni.movielist.databinding.ItemListContentBinding
 import com.turceni.movielist.placeholder.PlaceholderContent
@@ -113,7 +114,10 @@ class ItemListFragment : Fragment() {
             holder.idView.text = item.id
             holder.contentView.text = item.content
 
-            holder.imageView.setImageResource(R.drawable.maxresdefault)
+            Glide
+                .with(holder.imageView)
+                .load(item.imageURL).placeholder(R.drawable.maxresdefault)
+                .into(holder.imageView)
 
             with(holder.itemView) {
                 tag = item
