@@ -1,5 +1,6 @@
 package com.turceni.movielist.placeholder
 
+import android.content.ClipData
 import java.util.ArrayList
 import java.util.HashMap
 
@@ -30,7 +31,7 @@ object PlaceholderContent {
         }
     }
 
-    private fun addIt                                                                                                                                                                                                                                                                                                                                                                              em(item: PlaceholderItem) {
+    private fun addItem(item: PlaceholderItem) {
         ITEMS.add(item)
         ITEM_MAP.put(item.id, item)
     }

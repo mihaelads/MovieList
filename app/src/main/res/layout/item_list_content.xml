@@ -22,4 +22,15 @@
         tools:text="myItem"
         android:layout_margin="@dimen/text_margin"
         android:textAppearance="?attr/textAppearanceListItem" />
+
+
+    <ImageView
+        android:id="@+id/myImage"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        tools:background="#077"
+        tools:scaleType="centerCrop"
+        tools:src="@drawable/maxresdefault" />
+
 </LinearLayout>

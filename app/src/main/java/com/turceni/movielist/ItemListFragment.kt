@@ -2,21 +2,21 @@ package com.turceni.movielist
 
 import android.content.ClipData
 import android.content.ClipDescription
-import android.os.Build
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.turceni.movielist.placeholder.PlaceholderContent;
 import com.turceni.movielist.databinding.FragmentItemListBinding
 import com.turceni.movielist.databinding.ItemListContentBinding
+import com.turceni.movielist.placeholder.PlaceholderContent
 
 /**
  * A Fragment representing a list of Pings. This fragment
@@ -113,6 +113,8 @@ class ItemListFragment : Fragment() {
             holder.idView.text = item.id
             holder.contentView.text = item.content
 
+            holder.imageView.setImageResource(R.drawable.maxresdefault)
+
             with(holder.itemView) {
                 tag = item
                 setOnClickListener { itemView ->
@@ -129,12 +131,7 @@ class ItemListFragment : Fragment() {
                         itemView.findNavController().navigate(R.id.show_item_detail, bundle)
                     }
                 }
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    /**
-                     * Context click listener to handle Right click events
-                     * from mice and trackpad input to provide a more native
-                     * experience on larger screen devices
-                     */
+
                     setOnContextClickListener { v ->
                         val item = v.tag as PlaceholderContent.PlaceholderItem
                         Toast.makeText(
@@ -144,7 +141,7 @@ class ItemListFragment : Fragment() {
                         ).show()
                         true
                     }
-                }
+
 
                 setOnLongClickListener { v ->
                     // Setting the item id as the clip data so that the drop target is able to
@@ -156,21 +153,13 @@ class ItemListFragment : Fragment() {
                         clipItem
                     )
 
-                    if (Build.VERSION.SDK_INT >= 24) {
                         v.startDragAndDrop(
                             dragData,
                             View.DragShadowBuilder(v),
                             null,
                             0
                         )
-                    } else {
-                        v.startDrag(
-                            dragData,
-                            View.DragShadowBuilder(v),
-                            null,
-                            0
-                        )
-                    }
+
                 }
             }
         }
@@ -180,6 +169,7 @@ class ItemListFragment : Fragment() {
         inner class ViewHolder(binding: ItemListContentBinding) : RecyclerView.ViewHolder(binding.root) {
             val idView: TextView = binding.idText
             val contentView: TextView = binding.content
+            val imageView: ImageView = binding.myImage
         }
 
     }
